@@ -1,0 +1,429 @@
+<resources>
+    <string name="app_name">Employer</string>
+
+    <string name="server_error_message">Server not responding, Please try again</string>
+
+    <string name="network_error_message">Please check your internet connection</string>
+
+    <string name="msg_forpass">We will send an SMS with OTP to your registred email id !</string>
+
+    <string name="We_will_send">We will send OTP to your registered email id</string>
+
+    <string name="receive_in_your_registered">Please enter the code receive in your registered email</string>
+
+    <string name="send_password">Send Password</string>
+
+    <string name="verify">Verify</string>
+
+    <string name="otp">OTP</string>
+
+    <string name="reset_password">Reset Password</string>
+
+    <string name="sign_in">Sign In</string>
+
+    <string name="signup">Sign Up</string>
+
+    <string name="forgot_password">Forgot Password</string>
+
+    <string name="old_pswd">Old Password</string>
+
+    <string name="password">Password</string>
+
+    <string name="new_pswd">New Password</string>
+
+    <string name="cnfm_pswd">Confirm Password</string>
+
+    <string name="submit">Submit</string>
+
+    <string name="mobile_no">Mobile Number</string>
+
+    <string name="f_name">First Name</string>
+
+    <string name="full_name">Full Name</string>
+
+    <string name="l_name">Last Name</string>
+
+    <string name="resend_otp">Resend OTP</string>
+
+    <string name="enter_otp">Enter OTP</string>
+
+    <string name="otp_verification">OTP Verification</string>
+
+    <string name="change_number">Change Number</string>
+
+    <string name="name_blank_error">Please enter name</string>
+
+    <string name="email_blank_error">Please enter email</string>
+
+    <string name="otp_blank_error">Please enter OTP</string>
+
+    <string name="enter_email_id">Enter Email ID</string>
+
+    <string name="msg_blank_error">Please enter message</string>
+
+    <string name="f_name_blank_error">Please enter first name</string>
+
+    <string name="l_name_blank_error">Please enter last name</string>
+
+    <string name="email_not_macth_error">Please enter valid email</string>
+
+    <string name="password_blank_error">Please enter password</string>
+
+    <string name="short_code_blank_error">Please enter short code</string>
+
+    <string name="miles_blank_error">Please enter miles</string>
+
+    <string name="your_skills_blank_error">Please select your skills</string>
+
+    <string name="national_insurance_no_blank_error">Please enter national insurance no.</string>
+
+    <string name="account_number_blank_error">Please enter account number</string>
+
+    <string name="old_pass_blank_error">Please enter old password</string>
+
+    <string name="new_pass_blank_error">Please enter new password</string>
+
+    <string name="post_code_blank_error">Please enter post code</string>
+
+    <string name="c_password_blank_error">Please confirm password</string>
+
+    <string name="password_not_macth_error">Please enter valid password</string>
+
+    <string name="address_blank_error">Please enter address</string>
+
+    <string name="date_blank_error">Please select date</string>
+
+    <string name="country_blank_error">Please select country</string>
+
+    <string name="time_blank_error">Please select time</string>
+
+    <string name="country_first_blank_error">Please select country first</string>
+
+    <string name="password_cpassword_notmatch_error">Password and confirm password do not match</string>
+
+    <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout?</string>
+
+    <string name="terms_condition">I agree with Terms \u0026 Conditions</string>
+
+    <string name="wrong_mobile_no_error">Please enter valid phone number</string>
+
+    <string name="blank_mobile_no_erroe">Please enter phone number</string>
+
+    <string name="please_enter_6_character_password">Please enter 6 character password</string>
+
+    <string name="please_accept_conditions">Please accept, Terms And Conditions.</string>
+
+    <string name="under_development">Under Development</string>
+
+    <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+
+    <string name="availability_related_information">Availability Related Information</string>
+
+    <string name="availability_to_work_immediately">available to work immediately ?</string>
+
+    <string name="availability_start_on">Availability starts on</string>
+
+    <string name="availability_start_date">Select availability start date</string>
+
+    <string name="employee_registration">Employee Registration</string>
+
+    <string name="employer_registration">Employer Registration</string>
+
+    <string name="employer">Employer:</string>
+
+    <string name="register">Register</string>
+
+    <string name="update">Update</string>
+
+    <string name="background_information">Background Information</string>
+
+    <string name="please_select_valid_date">Please select valid date</string>
+
+    <string name="post_code">Post Code</string>
+
+    <string name="phone_number">Phone Number</string>
+
+    <string name="account_number">Account Number</string>
+
+    <string name="short_code">Short Code</string>
+
+    <string name="your_skills">Your Skills</string>
+
+    <string name="attachment">Attachment</string>
+
+    <string name="attach_clear_picture_of_your_nino">Attach clear picture of your NINO</string>
+
+    <string name="attach_clear_picture_of_your_cscs">Attach clear picture of your CSCS</string>
+
+    <string name="attach_clear_picture_of_your_utr">Attach clear picture of your UTR</string>
+
+    <string name="attach_your_cv">Attach your CV</string>
+
+    <string name="national_insurance_no">National Insurance no.(NINO)</string>
+
+    <string name="additional_information">Additional Information</string>
+
+    <string name="miles_your_are_willing_to_commute">Miles your are willing to commute</string>
+
+    <string name="additional_details">Additional Details</string>
+
+    <string name="additional_details_error">Please enter additional Details</string>
+
+    <string name="join_create_team">Join/Create a team</string>
+
+    <string name="enter_team_id">Enter team ID</string>
+
+    <string name="email">Email</string>
+
+    <string name="done">Done</string>
+
+    <string name="country_of_origin">Country of origin</string>
+
+    <string name="location_in_the_uk">Location in the UK</string>
+
+    <string name="location_not_in_the_uk">Location not in the UK</string>
+
+    <string name="tick_a_if_you_own_car">Tick a if you own car</string>
+
+    <string name="tick_if_you_have_the_required_ppe">Tick if you have the required PPE</string>
+
+    <string name="team_id">Team Id :</string>
+
+    <string name="add_team_members">Add team members</string>
+
+    <string name="member_head">Member#1</string>
+
+    <string name="member_hint">Enter User Id</string>
+
+    <string name="tab_profile">Profile</string>
+
+    <string name="current_assignment">Current Assignment</string>
+
+    <string name="previous_assignment">Previous Assignment</string>
+
+    <string name="tab_attachment">Attachment</string>
+
+    <string name="tab_additionalinof">Additional info.</string>
+
+    <string name="tab_perforamanceinfo">Performance info.</string>
+
+    <string name="tab_project">Project</string>
+
+    <string name="txt_NINO">NINO</string>
+
+    <string name="txt_Car">Car</string>
+
+    <string name="txt_Maxdistance">Max distance willing to continue (in miles):</string>
+
+    <string name="txt_addiInfo">Additional details:</string>
+
+    <string name="txt_name">First Name:</string>
+
+    <string name="txt_lastname">Last Name:</string>
+
+    <string name="txt_experience">Experience:</string>
+
+    <string name="txt_registeredon">Registered on:</string>
+
+    <string name="current_Project">Current Project</string>
+
+    <string name="current_members">Current Members</string>
+
+    <string name="completed_Project">Completed Project</string>
+
+    <string name="txt_UserID">User ID:</string>
+
+    <string name="text">We have checked the documents and information that you have provided \nus and we would appreciate if you can provide the following information.</string>
+
+    <string name="submitted_job_post">Submitted Job Post</string>
+
+    <string name="contractors_list_view">Contractors List View</string>
+
+    <string name="contractors_map_view">Contractors Map View</string>
+
+    <string name="active_job_post">Active Job Posts</string>
+
+    <string name="filled_job_post">Filled-in Job Posts</string>
+
+    <string name="qualification">Qualification</string>
+
+    <string name="distance">Distance</string>
+
+    <string name="cscs">CSCS</string>
+
+    <string name="rating">Rating*</string>
+
+    <string name="region">Region: </string>
+
+    <string name="posted_on">Posted on: </string>
+
+    <string name="untill">Until : </string>
+
+    <string name="by">By: </string>
+
+    <string name="until">Until: </string>
+
+    <string name="active_job_list_view">Active job list view</string>
+
+    <string name="active_job_map_view">Active job map view</string>
+
+    <string name="all_job_map_view">All jobs map view</string>
+
+    <!--Company Profile Start-->
+
+
+    <string name="companyProfile">Company Profile</string>
+
+    <string name="clicked_assignment">Clicked assignment</string>
+
+    <string name="other_active_assignment">Active assignment</string>
+
+    <string name="completed_assignment">Completed assignment</string>
+
+    <string name="company_name">Company Name :</string>
+
+    <string name="name">First Name : </string>
+
+    <string name="representative_role">Representative role: </string>
+
+    <string name="company_refrence_number">Company reference number: </string>
+
+    <string name="location">Location: </string>
+
+    <string name="registered_since">Registered since: </string>
+
+    <string name="total_number_project">Total number of projects: </string>
+
+    <string name="total_number_active_project">Total number of active projects: </string>
+
+    <string name="total_number_individual_worker">Total number of individual worker needed currently: </string>
+
+    <string name="total_number__worker">Total number of workers needed currently: </string>
+
+    <string name="total_number_team_hired">Total number of team needed currently: </string>
+
+    <string name="total_number_assignments">Total number of assignments: </string>
+
+    <string name="total_number_individual_worker_hired">Total number of individual worker needed : </string>
+
+    <string name="total_number_team_hired1">Total number of team needed : </string>
+
+    <string name="total_number__worker_hired">Total number of workers needed : </string>
+
+    <string name="currrently_searching_workers">Currently searching for workers : </string>
+
+    <string name="seeks">Seeks: </string>
+
+    <string name="complaints_from_employee">Complaints from employees: </string>
+
+    <string name="project_name">Project Name: </string>
+
+    <string name="project_region">Project Region: </string>
+
+    <string name="startingDate">Starting Date: </string>
+
+    <string name="requires">Requires: </string>
+
+    <string name="numberofemployee_hires">Total number of employee needed: </string>
+
+    <string name="numberofteam_hires">Total number of teams needed: </string>
+
+    <string name="endedon">Ended on: </string>
+
+    <string name="averagerating">Average rating: </string>
+
+    <string name="feddback">Feedback: </string>
+
+    <string name="thankyoumsg">Thank you! we will do our best to supply you a suitable contractor</string>
+
+    <!--Company Profile End-->
+
+
+    <!--Assignment Detail -->
+
+
+    <string name="assignmentdetail">Assignment Details</string>
+
+    <string name="ratingdetail">Rating Details</string>
+
+    <string name="representative_name">Representative Name :</string>
+
+    <string name="total_independentworker">Number of independent workers :</string>
+
+    <string name="assignment_submission">Assignment submission date:</string>
+
+    <string name="rolefilled_by">Role shall be filled by:</string>
+
+    <string name="contract_period">Contract period:</string>
+
+    <string name="pay">Pay (£):</string>
+
+    <string name="employerrating">Employer rating:</string>
+
+    <string name="back">Back</string>
+
+    <string name="totalprojectdays">Total number of projects days :</string>
+
+    <string name="totalcontractorshired">Total number of contractors needed :</string>
+
+    <string name="contractor_hired">Contractors currently needed :</string>
+
+    <string name="complaints">Total number of complaints:</string>
+
+    <string name="complaintsinpercentage">complaints per projects in (%):</string>
+
+    <string name="averageratingperproject">Average rating per project :</string>
+
+    <string name="ratingonlastproject">Rating on last project by employees :</string>
+
+    <!--AssignmentDetail End-->
+
+
+    <string name="str_monday">Monday</string>
+
+    <string name="str_tuesday">Tuesday</string>
+
+    <string name="str_wednsday">Wednesday</string>
+
+    <string name="str_thursday">Thursday</string>
+
+    <string name="str_friday">Friday</string>
+
+    <string name="str_saturday">Saturday</string>
+
+    <string name="str_sunday">Sunday</string>
+
+    <string name="str_email">If there are any changes in the working schedule please email us.</string>
+
+    <string name="str_downloadpayslip">Download Payslip</string>
+
+
+    -
+    <string name="view">
+
+<u>View</u>
+
+</string>
+
+    <string name="str_logout">Logout</string>
+
+    <string name="pound_sign">£</string>
+
+    <string name="license_agree_accept_btn">Accept</string>
+
+    <string name="license_agree_reject_btn">Reject</string>
+
+    <string name="license_check_no_show_again">Don\'t show this screen again.</string>
+
+    <string name="license_accept_prompt">I have read and accept the terms license agreement</string>
+
+    <string name="spread_chain">Spread Chain</string>
+
+    <string name="spread_chain_with_weights">Spread Chain with Weights</string>
+
+    <string name="inside_spread_chain">Inside Spread Chain</string>
+
+    <string name="packed_chain">Packed Chain</string>
+
+    <string name="packed_chain_with_bias">Packed Chain with Bias</string>
+</resources>

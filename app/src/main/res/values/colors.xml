@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f17a0a</color>
+
+    <color name="colorPrimaryDark">#1e2d3b</color>
+
+    <color name="colorAccent">#03A9F4</color>
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="black">#000000</color>
+
+    <color name="black_2">#2b2b2b</color>
+
+    <color name="transparent_color_gray">#a23b3b3b</color>
+
+    <color name="transparent_color_gray_1">#783b3b3b</color>
+
+    <color name="layout_bg_color">#dfdedc</color>
+
+    <color name="gray_color">#FF5722</color>
+
+    <color name="gray_color_aa">#aaaaaa</color>
+
+    <color name="gray_color_ab">#ababab</color>
+
+    <color name="gray_color_c4">#c4c4c4</color>
+
+    <color name="gray_color_de">#dedede</color>
+
+    <color name="gray_color_ef">#efefef</color>
+
+    <color name="gray_color_ed">#ededed</color>
+
+    <color name="gray_color_f3">#f3f3f3</color>
+
+    <color name="gray_color_f5">#f5f5f5</color>
+
+    <color name="gray_color_f8">#f8f8f8</color>
+
+    <color name="gray_color_f9">#f9f9f9</color>
+
+    <color name="gray_color_e2e6">#2196F3</color>
+
+    <color name="orange_color">#03A9F4</color>
+
+    <color name="orange_color2">#fee9cc</color>
+
+    <color name="blue_color">#1e2d3b</color>
+
+    <color name="bottom_text_color_gry">#828383</color>
+
+    <color name="color_accept_bg">#75b85e</color>
+
+    <color name="colorcurrentproject">#2E3135</color>
+
+    <color name="colorpreviousproject">#F7A95A</color>
+
+    <color name="specail_color">#A7A7A7</color>
+
+    <color name="item_bg">#EEEEEE</color>
+
+    <color name="home_bg">#D3D3D3</color>
+
+    <color name="item_color">#959494</color>
+
+    <color name="circle_color">#dddddd</color>
+
+    <color name="red">#B91111</color>
+
+    <color name="rate_color">#BFB7B1</color>
+</resources>

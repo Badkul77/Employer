@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+
+    tools:context=".MainActivity"
+    >
+
+    <TextView
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:text="Welcome to R"/>
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="370dp"
+        android:layout_height="228dp"
+        android:background="@drawable/splashwall"
+        android:gravity="center"
+        >
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <pl.droidsonroids.gif.GifImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/splash"
+            android:id="@+id/splash_screen"
+            >
+
+        </pl.droidsonroids.gif.GifImageView>
+    </LinearLayout>
+
+</LinearLayout>
