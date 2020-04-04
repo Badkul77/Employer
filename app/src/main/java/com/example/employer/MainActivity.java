@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -31,6 +32,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.net.URI;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
     ImageView profile,activeJobs,employeesOnline,employeesRegistered,createJob,menu;
     FragmentTransaction transaction;
     FragmentManager manager;
-    TextView comapanynameo;
+    TextView comapanynameo,name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
         initComponent();
-        manager=getSupportFragmentManager();
+       manager=getSupportFragmentManager();
         transaction=manager.beginTransaction();
         transaction.replace(R.id.ll,new ActiveJobs());
         transaction.commit();
@@ -61,10 +63,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // move to active jobs fragment
-                manager=getSupportFragmentManager();
+              /*  manager=getSupportFragmentManager();
                 transaction=manager.beginTransaction();
                 transaction.replace(R.id.ll,new ActiveJobs());
-                transaction.commit();
+                transaction.commit();*/
+              Intent intent=new Intent(MainActivity.this,Active_JobActivity.class);
+              startActivity(intent);
 
             }
         });
@@ -74,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 // move to employees Rehistered fragment
                 manager=getSupportFragmentManager();
                 transaction=manager.beginTransaction();
-                transaction.replace(R.id.ll,new EmployeesOnline());
+                transaction.replace(R.id.ll,new EmployeesRegistered());
                 transaction.commit();
             }
         });
@@ -84,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 // move to employees online fragment
                 manager=getSupportFragmentManager();
                 transaction=manager.beginTransaction();
-                transaction.replace(R.id.ll,new EmployeesRegistered());
+                transaction.replace(R.id.ll,new EmployeesOnline());
                 transaction.commit();
             }
         });
@@ -98,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
                 transaction.commit();*/
                 startActivity(new Intent(getApplicationContext(),Job_Activity.class));
                 finish();
-
             }
         });
 
@@ -108,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         userID = fAuth.getCurrentUser().getUid();
         fStore = FirebaseFirestore.getInstance();
-        reference=database.getInstance().getReference().child("Jobs").child(userID);
+        reference=database.getInstance().getReference().child("Employer_Images").child(userID);
       //  recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //al=new ArrayList<>();
         //al.add(new model("Hotel Staff","Stakers","Short desc","9:00",
@@ -116,7 +119,19 @@ public class MainActivity extends AppCompatActivity {
         //adapter=new JobListAdapter(MainActivity.this,al);
 
 
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+              String image=dataSnapshot.child("image").getValue().toString();
+              //profile.setImageURI(Uri.parse(image));
+             // profile.setImageBitmap();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         final DocumentReference documentReference=fStore.collection("Employers").document(userID);
         documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -125,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     company=documentSnapshot.getString("Name_Of_Company");
                     comapanynameo.setText(company);
+                    name.setText(documentSnapshot.getString("first")+" "+documentSnapshot.getString("last"));
                 }
             }
         });
@@ -248,7 +264,8 @@ public class MainActivity extends AppCompatActivity {
     }
     private void initComponent()
     {
-        profile=findViewById(R.id.imageView2);
+        name=findViewById(R.id.nameuser);
+        profile=findViewById(R.id.profieuser);
         activeJobs=findViewById(R.id.activeJobs);
         employeesOnline=findViewById(R.id.employeesOnline);
         employeesRegistered=findViewById(R.id.employeesRegistered);

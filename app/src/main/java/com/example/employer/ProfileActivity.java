@@ -62,7 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
                    m_role=documentSnapshot.getString("role");
                    m_phoneno=documentSnapshot.getString("contact");
                    m_GSTIN=documentSnapshot.getString("GSTIN");
-                   m_Aadhar=documentSnapshot.getString("Aadhar_No");
+                   m_Aadhar=documentSnapshot.getString("Aadhar_NO");
                    m_city=documentSnapshot.getString("City");
                    m_region=documentSnapshot.getString("Location");
                    m_company_email=documentSnapshot.getString("Comapany_Mail");

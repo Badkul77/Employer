@@ -22,7 +22,7 @@
 
     <ImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/imageView2"
+        android:id="@+id/profieuser"
         android:layout_width="71dp"
         android:layout_height="71dp"
         android:layout_marginStart="16dp"
@@ -41,7 +41,7 @@
         android:textColor="#FFF"
         android:fontFamily="@font/mr"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/profieuser"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -54,7 +54,7 @@
         android:fontFamily="@font/ml"
         android:textColor="#FFF"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/profieuser"
         app:layout_constraintTop_toBottomOf="@+id/nameuser" />
 
     <LinearLayout
@@ -69,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/profieuser">
 
         <TextView
             android:id="@+id/mainmenus"

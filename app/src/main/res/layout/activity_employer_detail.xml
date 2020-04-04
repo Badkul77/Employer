@@ -46,7 +46,14 @@
                 android:orientation="vertical"
                 android:padding="@dimen/dimen_10dp">
 
+                <ImageView
+                    android:id="@+id/ProfileImage"
+                    android:layout_width="@dimen/dimen_80dp"
+                    android:layout_height="@dimen/dimen_80dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/profile">
 
+                </ImageView>
                 <!--Header for first name and Lastname start-->
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -290,6 +297,17 @@
                     android:padding="@dimen/dimen_8dp"
                     android:textColor="@color/gray_color"
                     android:textSize="@dimen/dimen_12dp" />
+                <TextView
+                    android:id="@+id/adharCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:text="Upload Aadhar Card Image"
+                    android:gravity="right"
+                    android:layout_marginLeft="135dp"
+                    android:textColor="@color/orange_color"
+                    android:textSize="@dimen/text_12sp"
+                    android:visibility="visible" />
 
 
                 <TextView
@@ -425,7 +443,17 @@
                     android:padding="@dimen/dimen_8dp"
                     android:textColor="@color/gray_color"
                     android:textSize="@dimen/dimen_12dp" />
-
+                <TextView
+                    android:id="@+id/gstcard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:text="Upload GST Attachment"
+                    android:gravity="right"
+                    android:layout_marginLeft="135dp"
+                    android:textColor="@color/orange_color"
+                    android:textSize="@dimen/text_12sp"
+                    android:visibility="visible" />
 
 
             </LinearLayout>

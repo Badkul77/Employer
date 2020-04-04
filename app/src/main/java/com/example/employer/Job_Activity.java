@@ -3,11 +3,15 @@ package com.example.employer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,19 +29,21 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Job_Activity extends AppCompatActivity {
-    EditText et_job_title,et_job_desc,et_special,et_job_start,et_job_end,et_amount,et_booking,et_date;
+public class Job_Activity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+    EditText et_job_title,et_job_desc,et_special,et_job_start,et_job_end,et_amount,et_booking,et_address;
     Button add_job;
-
+   TextView et_date;
+   ImageButton btndate;
     FirebaseDatabase database;
     DatabaseReference reference;
 
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-    String userID,mcompanyname;
+    String userID,mcompanyname,jobcity,mjoblocation;
     int uid=1000;
     int id=1;
     @Override
@@ -52,7 +58,9 @@ public class Job_Activity extends AppCompatActivity {
         et_amount=findViewById(R.id.et_amount);
         et_booking=findViewById(R.id.et_bookingR);
         et_date=findViewById(R.id.et_date);
+       // et_address=findViewById(R.id.et_address);
         add_job=findViewById(R.id.btn_add_job);
+        btndate=findViewById(R.id.btndate);
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
@@ -81,10 +89,17 @@ public class Job_Activity extends AppCompatActivity {
                if (documentSnapshot.exists())
                {
                    mcompanyname=documentSnapshot.getString("Name_Of_Company");
+                   jobcity=documentSnapshot.getString("City");
+                   mjoblocation=documentSnapshot.getString("Location");
                }
             }
         });
-
+    btndate.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            showDatePickerDialog();
+        }
+    });
     add_job.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,6 +140,8 @@ public class Job_Activity extends AppCompatActivity {
                     reference.child("job"+id).child("Job_Date").setValue(et_date.getText().toString());
                     reference.child("job"+id).child("Company_name").setValue(mcompanyname);
                     reference.child("job"+id).child("UserId").setValue(userID);
+                    reference.child("job"+id).child("Location").setValue(mjoblocation);
+
                     Toast.makeText(Job_Activity.this, "Succesfully Registered", Toast.LENGTH_SHORT).show();
 
                 }
@@ -138,5 +155,23 @@ public class Job_Activity extends AppCompatActivity {
         super.onBackPressed();
         startActivity(new Intent(getApplicationContext(),MainActivity.class));
         finish();
+    }
+    private void showDatePickerDialog()
+    {
+        DatePickerDialog datePickerDialog=new DatePickerDialog(
+                this,
+                this,
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        );
+        datePickerDialog.show();
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+         month+=1;
+        String date=""+dayOfMonth+"/"+month+"/"+year;
+        et_date.setText(date);
     }
 }

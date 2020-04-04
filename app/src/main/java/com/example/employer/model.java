@@ -2,9 +2,9 @@ package com.example.employer;
 
 public class model {
 
-    String jobtitle,companynamem,description,timeofreporting,duratin,date,rupee;
+    String jobtitle,companynamem,description,timeofreporting,duratin,date,rupee,job;
 
-    public model(String jobtitle, String companynamem, String description, String timeofreporting, String duratin, String date, String rupee) {
+    public model(String jobtitle, String companynamem, String description, String timeofreporting, String duratin, String date, String rupee,String job) {
         this.jobtitle = jobtitle;
         this.companynamem = companynamem;
         this.description = description;
@@ -12,6 +12,15 @@ public class model {
         this.duratin = duratin;
         this.date = date;
         this.rupee = rupee;
+        this.job=job;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
     }
 
     public String getJobtitle() {

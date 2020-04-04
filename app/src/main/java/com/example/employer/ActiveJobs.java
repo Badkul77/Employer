@@ -39,7 +39,7 @@ public class ActiveJobs extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
       View v=inflater.inflate(R.layout.active_jobs_fragment,null);
-        recyclerView=v.findViewById(R.id.rv);
+        /*recyclerView=v.findViewById(R.id.rv);
         fAuth = FirebaseAuth.getInstance();
         userID = fAuth.getCurrentUser().getUid();
         fStore = FirebaseFirestore.getInstance();
@@ -47,7 +47,7 @@ public class ActiveJobs extends Fragment
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         al=new ArrayList<>();
         al.add(new model("Hotel Staff","Stakers","Short desc","9:00",
-                "9 Hours","16/03/2020","6000"));
+                "9 Hours","16/03/2020","6000","job0"));
         adapter=new JobListAdapter(getContext(),al);
 
 
@@ -62,7 +62,7 @@ public class ActiveJobs extends Fragment
                 }
             }
         });*/
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+       /* reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -79,7 +79,7 @@ public class ActiveJobs extends Fragment
                     rupee=dataSnapshot.child(job).child("Job_Amount").getValue().toString();
                     //  Log.d("title : ",job);
                     //Log.d("title : ",jobtitle);
-                    al.add(new model(jobtitle,companynamem,description,timeofreporting,duratin,date,rupee));
+                    al.add(new model(jobtitle,companynamem,description,timeofreporting,duratin,date,rupee,job));
                     adapter.notifyDataSetChanged();
 
                 }
@@ -90,7 +90,7 @@ public class ActiveJobs extends Fragment
 
             }
         });
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);*/
       return v;
     }
 }

@@ -79,7 +79,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void initComponent()
     {
-        profile=findViewById(R.id.imageView2);
+        profile=findViewById(R.id.profieuser);
         activeJobs=findViewById(R.id.activeJobs);
         employeesOnline=findViewById(R.id.employeesOnline);
         employeesRegistered=findViewById(R.id.employeesRegistered);
