@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimen_20dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:text="Job Registeration"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:background="@drawable/rounded_corner_layout"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_10dp">
+            <!--Email layout field start-->
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:text="Job Title"
+                android:textColor="@color/orange_color"
+                android:textSize="@dimen/text_12sp" />
+
+            <EditText
+                android:id="@+id/et_job_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:background="@drawable/rounded_corner_rectangle_solid_gray"
+                android:gravity="center_vertical"
+                android:hint="Hotel Manager"
+                android:inputType="textPersonName"
+                android:nextFocusDown="@+id/et_desc"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_8dp"
+                android:textColor="@color/gray_color"
+                android:textSize="@dimen/dimen_12dp">
+
+            </EditText>
+
+
+            <!--Email layout field End-->
+            <!--Email layout field start-->
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:text="Job Description"
+                android:textColor="@color/orange_color"
+                android:textSize="@dimen/text_12sp" />
+
+            <EditText
+                android:id="@+id/et_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:background="@drawable/rounded_corner_rectangle_solid_gray"
+                android:gravity="center_vertical"
+                android:hint="Something about company..."
+                android:inputType="textCapSentences|textMultiLine"
+                android:maxLength="2000"
+                android:maxLines="4"
+                android:nextFocusDown="@+id/et_special"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_8dp"
+                android:textColor="@color/gray_color"
+                android:textSize="@dimen/dimen_12dp">
+
+            </EditText>
+
+            <!--Email layout field start-->
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:text="Special Instruction"
+                android:textColor="@color/orange_color"
+                android:textSize="@dimen/text_12sp" />
+
+            <EditText
+                android:id="@+id/et_special"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:background="@drawable/rounded_corner_rectangle_solid_gray"
+                android:gravity="center_vertical"
+                android:hint="Black Pant and White Shirt"
+                android:inputType="text"
+                android:nextFocusDown="@+id/et_j_start"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_8dp"
+                android:textColor="@color/gray_color"
+                android:textSize="@dimen/dimen_12dp">
+
+            </EditText>
+
+            <!--Email layout field End-->
+            <!--First Name and Last Name  field layout start-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Job Start Time"
+                    android:textColor="@color/orange_color"
+                    android:textSize="@dimen/text_12sp" />
+
+                <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5dp"
+                    android:layout_weight="1"
+                    android:text="Job End Time"
+                    android:textColor="@color/orange_color"
+                    android:textSize="@dimen/text_12sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_j_start"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_corner_rectangle_solid_gray"
+                    android:hint="9:00 AM"
+                    android:inputType="time"
+                    android:nextFocusDown="@+id/et_j_end"
+                    android:padding="@dimen/dimen_8dp"
+                    android:textColor="@color/gray_color"
+                    android:textSize="@dimen/text_12sp" />
+
+                <EditText
+                    android:id="@+id/et_j_end"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_corner_rectangle_solid_gray"
+                    android:hint="5:00 PM"
+                    android:inputType="time"
+                    android:nextFocusDown="@+id/et_amount"
+                    android:padding="@dimen/dimen_8dp"
+                    android:textColor="@color/gray_color"
+                    android:textSize="@dimen/text_12sp" />
+
+            </LinearLayout>
+
+
+            <!--First Name and Last Name  field layout End-->
+
+
+            <!--PhoneNumber layout field start-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:text="Amount Paid"
+                android:textColor="@color/orange_color"
+                android:textSize="@dimen/text_12sp" />
+
+            <EditText
+                android:id="@+id/et_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:background="@drawable/rounded_corner_rectangle_solid_gray"
+                android:gravity="center_vertical"
+                android:hint="Ex. 6000"
+                android:inputType="phone"
+                android:nextFocusDown="@+id/et_date"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_8dp"
+                android:textColor="@color/gray_color"
+                android:textSize="@dimen/dimen_12dp" />
+
+
+            <!--PhoneNumber layout field End-->
+
+
+
+
+
+            <!--Country of origion layout field Start-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:text="Job Date"
+                android:textColor="@color/orange_color"
+                android:textSize="@dimen/text_12sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                >
+                <TextView
+                    android:id="@+id/et_date"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.8"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:background="@drawable/rounded_corner_rectangle_solid_gray"
+                    android:gravity="center_vertical"
+                    android:hint="Ex. 16/03/2020"
+                    android:inputType="date"
+                    android:nextFocusDown="@+id/et_bookingR"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dimen_8dp"
+                    android:textColor="@color/gray_color"
+                    android:textSize="@dimen/dimen_12dp" />
+                <ImageButton
+                    android:id="@+id/btndate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.15"
+                    android:src="@drawable/ic_today_black_24dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="#fff">
+
+                </ImageButton>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:text="Booking Radius"
+                android:textColor="@color/orange_color"
+                android:textSize="@dimen/text_12sp" />
+
+            <EditText
+                android:id="@+id/et_bookingR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@drawable/rounded_corner_rectangle_solid_gray"
+                android:drawableRight="@drawable/drop_down"
+                android:drawablePadding="@dimen/dimen_5dp"
+                android:gravity="center_vertical"
+                android:hint="Booking Radius"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_8dp"
+                android:inputType="text"
+                android:textColor="@color/gray_color"
+                android:textSize="@dimen/dimen_12dp">
+
+            </EditText>
+
+        </LinearLayout>
+
+
+        <!--Register button layout field start-->
+
+
+
+        <Button
+            android:id="@+id/btn_edit_job"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_rectangle_black_2"
+            android:gravity="center"
+            android:padding="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:hint="Edit Job"
+            android:textAlignment="center"
+            android:textColorHint="#FFF"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16sp" />
+
+
+        <!--Register button layout field End-->
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </LinearLayout>
+</ScrollView>
