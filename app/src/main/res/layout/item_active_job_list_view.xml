@@ -221,7 +221,6 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_marginTop="30dp"
-                    android:gravity="center"
                     android:layout_height="wrap_content">
 
 
@@ -230,7 +229,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
+                        android:layout_marginLeft="@dimen/dimen_70dp"
                         android:text="Delete Job" />
+                    <Button
+                        android:id="@+id/btnedit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_marginLeft="220dp"
+                        android:text="Edit Job" />
+
 
 
                 </RelativeLayout>

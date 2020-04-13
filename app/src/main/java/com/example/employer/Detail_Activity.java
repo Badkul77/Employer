@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -38,13 +40,12 @@ import java.util.UUID;
 
 
 public class Detail_Activity extends AppCompatActivity {
-    EditText et_f_name, et_l_name, et_email, et_role,
-            et_password, et_cnfm_pswd, et_contact, et_altcontact,etaadhar,etnameofcompany,et_typeofbusiness,
+    EditText et_f_name, et_l_name, et_email, et_role, et_contact, et_altcontact,etaadhar,etnameofcompany,et_typeofbusiness,
             et_company_email,et_city,et_location,et_gstin;
     private StorageReference storageReference;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-    String userID;
+    String userID,lat,lon;
    ImageView profile;
    TextView aadhar_attach,gstin_attach;
    private Uri filepath1,filepath2,filepath3;
@@ -58,7 +59,6 @@ public class Detail_Activity extends AppCompatActivity {
 
         et_f_name=findViewById(R.id.et_f_name);
         et_l_name = findViewById(R.id.et_l_name);
-        et_password = findViewById(R.id.et_password);
         et_email=findViewById(R.id.et_email);
         et_role=findViewById(R.id.et_your_role);
         et_contact=findViewById(R.id.et_contact_detail);
@@ -115,8 +115,17 @@ public class Detail_Activity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(et_f_name.getText().toString().isEmpty()|| et_l_name.getText().toString().isEmpty() || et_password.getText().toString().isEmpty()
-                        || et_company_email.getText().toString().isEmpty()|| et_role.getText().toString().isEmpty() || et_contact.getText().toString().isEmpty()
+                if(lat!=null || lon!=null) {
+                    GeocodingLocation locationAddress = new GeocodingLocation();
+                    locationAddress.getAddressFromLocation(et_location.getText().toString(),
+                            getApplicationContext(), new GeocoderHandler());
+                }
+                else
+                {
+                    Toast.makeText(Detail_Activity.this, "Please Provide the correct location with pincode", Toast.LENGTH_SHORT).show();
+                   return;
+                }
+                if(et_f_name.getText().toString().isEmpty()|| et_l_name.getText().toString().isEmpty() || et_company_email.getText().toString().isEmpty()|| et_role.getText().toString().isEmpty() || et_contact.getText().toString().isEmpty()
                         || et_altcontact.getText().toString().isEmpty()|| et_email.getText().toString().isEmpty() || etaadhar.getText().toString().isEmpty()
                         ||etnameofcompany.getText().toString().isEmpty()|| et_typeofbusiness.getText().toString().isEmpty()
                         || et_city.getText().toString().isEmpty()|| et_location.getText().toString().isEmpty()|| et_gstin.getText().toString().isEmpty()
@@ -205,7 +214,6 @@ public class Detail_Activity extends AppCompatActivity {
                     user.put("last",et_l_name.getText().toString());
                     user.put("email",et_email.getText().toString());
                     user.put("role",et_role.getText().toString());
-                    user.put("password",et_password.getText().toString());
                     user.put("contact",et_contact.getText().toString());
                     user.put("Alternate_contact",et_altcontact.getText().toString());
                     user.put("Aadhar_NO",etaadhar.getText().toString());
@@ -215,6 +223,11 @@ public class Detail_Activity extends AppCompatActivity {
                     user.put("City",et_city.getText().toString());
                     user.put("Location",et_location.getText().toString());
                     user.put("GSTIN",et_gstin.getText().toString());
+                  //  user.put("SignIN","");
+                    user.put("Valid","false");
+                    user.put("Block","false");
+                    user.put("Latitude",lat);
+                    user.put("Longitude",lon);
                  //   user.put("image", profileUrl.toString());
                    // user.put("AadharURL", adharUrl.toString());
                     //user.put("GSTURL", gstURL.toString());
@@ -256,6 +269,23 @@ public class Detail_Activity extends AppCompatActivity {
         } else if (requestCode == 3 && resultCode == RESULT_OK && data != null) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             filepath3 = result.getUri();
+        }
+    }
+    private class GeocoderHandler extends Handler {
+        @Override
+        public void handleMessage(Message message) {
+            String locationAddress;
+            switch (message.what) {
+                case 1:
+                    Bundle bundle = message.getData();
+                    locationAddress = bundle.getString("address");
+                    lat= bundle.getString("latitude");
+                    lon= bundle.getString("longitude");
+                    break;
+                default:
+                    locationAddress = null;
+            }
+         //   latLongTV.setText(locationAddress);
         }
     }
 }

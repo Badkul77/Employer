@@ -1,6 +1,7 @@
 package com.example.employer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +78,14 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListAdapter.JobListV
                 }
             }
         });
+        holder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in=new Intent(mCtx,EditActivity.class);
+                in.putExtra("EXTRA_SESSION_ID",m.job);
+                mCtx.startActivity(in);
+            }
+        });
     }
 
     @Override
@@ -87,7 +96,7 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListAdapter.JobListV
     class JobListViewHolder extends RecyclerView.ViewHolder{
 
         TextView etjobTitle,etCompantName,etDesciption,etTImeOFReporting,etDuration,etDate,etRupee;
-        Button delete;
+        Button delete,edit;
 
         public JobListViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -100,6 +109,7 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListAdapter.JobListV
             etDate=itemView.findViewById(R.id.date);
             etRupee=itemView.findViewById(R.id.rupee);
             delete=itemView.findViewById(R.id.btndelete);
+            edit=itemView.findViewById(R.id.btnedit);
         }
     }
 }

@@ -76,10 +76,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // move to employees Rehistered fragment
-                manager=getSupportFragmentManager();
+               /* manager=getSupportFragmentManager();
                 transaction=manager.beginTransaction();
                 transaction.replace(R.id.ll,new EmployeesRegistered());
-                transaction.commit();
+                transaction.commit();*/
+               Intent in=new Intent(MainActivity.this,ShortList_Activity.class);
+               startActivity(in);
             }
         });
         employeesOnline.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         userID = fAuth.getCurrentUser().getUid();
         fStore = FirebaseFirestore.getInstance();
-        reference=database.getInstance().getReference().child("Employer_Images").child(userID);
+       // reference=database.getInstance().getReference().child("Employer_Images").child(userID);
       //  recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //al=new ArrayList<>();
         //al.add(new model("Hotel Staff","Stakers","Short desc","9:00",
@@ -119,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         //adapter=new JobListAdapter(MainActivity.this,al);
 
 
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+      /*  reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
               String image=dataSnapshot.child("image").getValue().toString();
@@ -131,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });*/
         final DocumentReference documentReference=fStore.collection("Employers").document(userID);
         documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -294,6 +296,11 @@ public class MainActivity extends AppCompatActivity {
         else if (item.getItemId()==R.id.add_job)
         {
             startActivity(new Intent(getApplicationContext(),Job_Activity.class));
+            finish();
+        }
+        else if (item.getItemId()==R.id.location)
+        {
+            startActivity(new Intent(getApplicationContext(),GeocodingActivity.class));
             finish();
         }
         return true;

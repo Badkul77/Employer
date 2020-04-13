@@ -29,7 +29,10 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,7 +43,7 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
    ImageButton btndate;
     FirebaseDatabase database;
     DatabaseReference reference;
-
+    String time,date;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userID,mcompanyname,jobcity,mjoblocation;
@@ -65,7 +68,17 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
         reference=database.getInstance().getReference().child("Jobs").child(userID);
+          time= String.valueOf(Calendar.getInstance().getTime());
+        Date c = Calendar.getInstance().getTime();
+        System.out.println("Current time => " + c);
 
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        final String formattedDate = df.format(c);
+
+        /*SimpleDateFormat curFormater = new SimpleDateFormat("dd/MM/yyyy");
+        Date dateObj = curFormater.parse(dateStr);
+        SimpleDateFormat postFormater = new SimpleDateFormat("MMMM dd, yyyy");
+        String newDateStr = postFormater.format(dateObj);*/
         //To find no. of job available
        reference.addListenerForSingleValueEvent(new ValueEventListener() {
            @Override
@@ -93,7 +106,7 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
                    mjoblocation=documentSnapshot.getString("Location");
                }
             }
-        });
+        }   );
     btndate.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -130,18 +143,19 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
                         }
                     });*/
 
-                    reference.child("job"+id).child("Job_Title").setValue(et_job_title.getText().toString());
-                    reference.child("job"+id).child("Job_Desc").setValue(et_job_desc.getText().toString());
-                    reference.child("job"+id).child("Job_Special").setValue(et_special.getText().toString());
-                    reference.child("job"+id).child("Job_Start_Time").setValue(et_job_start.getText().toString());
-                    reference.child("job"+id).child("Job_End_Time").setValue(et_job_end.getText().toString());
-                    reference.child("job"+id).child("Job_Amount").setValue(et_amount.getText().toString());
-                    reference.child("job"+id).child("Job_Booking_Radius").setValue(et_booking.getText().toString());
-                    reference.child("job"+id).child("Job_Date").setValue(et_date.getText().toString());
-                    reference.child("job"+id).child("Company_name").setValue(mcompanyname);
-                    reference.child("job"+id).child("UserId").setValue(userID);
-                    reference.child("job"+id).child("Location").setValue(mjoblocation);
-
+                    reference.child(time+"job"+id).child("Job_Title").setValue(et_job_title.getText().toString());
+                    reference.child(time+"job"+id).child("Job_Desc").setValue(et_job_desc.getText().toString());
+                    reference.child(time+"job"+id).child("Job_Special").setValue(et_special.getText().toString());
+                    reference.child(time+"job"+id).child("Job_Start_Time").setValue(et_job_start.getText().toString());
+                    reference.child(time+"job"+id).child("Job_End_Time").setValue(et_job_end.getText().toString());
+                    reference.child(time+"job"+id).child("Job_Amount").setValue(et_amount.getText().toString());
+                    reference.child(time+"job"+id).child("Job_Booking_Radius").setValue(et_booking.getText().toString());
+                    reference.child(time+"job"+id).child("Job_Date").setValue(et_date.getText().toString());
+                    reference.child(time+"job"+id).child("Company_name").setValue(mcompanyname);
+                    reference.child(time+"job"+id).child("UserId").setValue(userID);
+                    reference.child(time+"job"+id).child("Location").setValue(mjoblocation);
+                    reference.child(time+"job"+id).child("Job_ID").setValue(time+"job"+id);
+                    reference.child(time+"job"+id).child("Job_Publish_date").setValue(formattedDate);
                     Toast.makeText(Job_Activity.this, "Succesfully Registered", Toast.LENGTH_SHORT).show();
 
                 }
