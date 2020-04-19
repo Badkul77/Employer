@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/verification"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        >
+
+    </ImageView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Once You Verified By the Admin\nYou Will Redirected to the Dashboard"
+        android:gravity="center"
+        android:textSize="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_35dp"
+        android:textColor="@color/gray_color"
+        >
+    </TextView>
+    <Button
+        android:id="@+id/btnrefresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click Here To Refresh"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_60dp"
+        android:backgroundTint="@color/gray_color"
+        >
+
+    </Button>
+</LinearLayout>

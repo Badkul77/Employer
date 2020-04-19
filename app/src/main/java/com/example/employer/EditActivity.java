@@ -130,7 +130,7 @@ public class EditActivity extends AppCompatActivity implements DatePickerDialog.
                     reference.child("Company_name").setValue(mcompanyname);
                     reference.child("UserId").setValue(userID);
                     reference.child("Location").setValue(mjoblocation);
-                    reference.child("Job_ID").setValue(time+"job"+id);
+                  //  reference.child("Job_ID").setValue(time+"job"+id);
                    // reference.child("Job_Publish_date").setValue(formattedDate);
                     Toast.makeText(EditActivity.this, "Succesfully Registered", Toast.LENGTH_SHORT).show();                }
             }

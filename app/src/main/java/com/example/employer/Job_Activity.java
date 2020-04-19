@@ -4,14 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,13 +42,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Job_Activity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
-    EditText et_job_title,et_job_desc,et_special,et_job_start,et_job_end,et_amount,et_booking,et_address;
+    EditText et_job_title,et_job_desc,et_amount,et_booking,et_address;
     Button add_job;
+    TextView et_job_start,et_job_end;
+    Spinner et_special;
+    String sstatus;
    TextView et_date;
-   ImageButton btndate;
+   ImageButton btndate,btnstart,btnend;
     FirebaseDatabase database;
     DatabaseReference reference;
     String time,date;
+    ArrayAdapter<String> adapter;
+    String profesion[] = {"Black Pant", "White Shirt", "Black Shoe ","Clean Save"};
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userID,mcompanyname,jobcity,mjoblocation;
@@ -53,9 +63,12 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job);
+        et_special=findViewById(R.id.special);
+        adapter = new ArrayAdapter<String>(Job_Activity.this, android.R.layout.simple_list_item_1, profesion);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        et_special.setAdapter(adapter);
         et_job_title=findViewById(R.id.et_job_title);
         et_job_desc=findViewById(R.id.et_desc);
-        et_special=findViewById(R.id.et_special);
         et_job_start=findViewById(R.id.et_j_start);
         et_job_end=findViewById(R.id.et_j_end);
         et_amount=findViewById(R.id.et_amount);
@@ -64,6 +77,51 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
        // et_address=findViewById(R.id.et_address);
         add_job=findViewById(R.id.btn_add_job);
         btndate=findViewById(R.id.btndate);
+        btnstart=findViewById(R.id.btnstart);
+        btnend=findViewById(R.id.btnend);
+        et_special.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch(position)
+                {
+                    case 0:
+                    {
+                        sstatus="Pending Shortlist";
+                        break;
+                    }
+                    case 1:
+                    {
+                        sstatus="Pending Transport Details";
+                        break;
+                    }
+                    case 2:
+                    {
+                        sstatus="Pending Start";
+                        break;
+                    }
+                    case 3:
+                    {
+                        sstatus="Live";
+                        break;
+                    }
+                    case 4:
+                    {
+                        sstatus="Completed";
+                        break;
+                    }
+                    case 5:
+                    {
+                        sstatus="Cancelled";
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
@@ -113,10 +171,46 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
             showDatePickerDialog();
         }
     });
+    btnstart.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Calendar mcurrentTime = Calendar.getInstance();
+            int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+            int minute = mcurrentTime.get(Calendar.MINUTE);
+            TimePickerDialog mTimePicker;
+            mTimePicker = new TimePickerDialog(Job_Activity.this, new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                    et_job_start.setText( selectedHour + ":" + selectedMinute);
+                }
+            }, hour, minute, false);//Yes 24 hour time
+            mTimePicker.setTitle("Select Time");
+            mTimePicker.show();
+
+        }
+    });
+        btnend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(Job_Activity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                        et_job_end.setText( selectedHour + ":" + selectedMinute);
+                    }
+                }, hour, minute, false);//Yes 24 hour time
+                mTimePicker.setTitle("Select Time");
+                mTimePicker.show();
+
+            }
+        });
     add_job.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(et_job_title.getText().toString().isEmpty()||et_job_desc.getText().toString().isEmpty()||et_special.getText().toString().isEmpty()||
+                if(et_job_title.getText().toString().isEmpty()||et_job_desc.getText().toString().isEmpty()||
                         et_job_start.getText().toString().isEmpty()||et_job_end.getText().toString().isEmpty()||et_amount.getText().toString().isEmpty()||
                         et_booking.getText().toString().isEmpty()||et_date.getText().toString().isEmpty())
                 {
@@ -145,7 +239,7 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
 
                     reference.child(time+"job"+id).child("Job_Title").setValue(et_job_title.getText().toString());
                     reference.child(time+"job"+id).child("Job_Desc").setValue(et_job_desc.getText().toString());
-                    reference.child(time+"job"+id).child("Job_Special").setValue(et_special.getText().toString());
+                    reference.child(time+"job"+id).child("Job_Special").setValue(sstatus);
                     reference.child(time+"job"+id).child("Job_Start_Time").setValue(et_job_start.getText().toString());
                     reference.child(time+"job"+id).child("Job_End_Time").setValue(et_job_end.getText().toString());
                     reference.child(time+"job"+id).child("Job_Amount").setValue(et_amount.getText().toString());

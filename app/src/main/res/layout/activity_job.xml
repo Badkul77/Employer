@@ -94,22 +94,15 @@
                 android:textColor="@color/orange_color"
                 android:textSize="@dimen/text_12sp" />
 
-            <EditText
-                android:id="@+id/et_special"
+            <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_5dp"
-                android:background="@drawable/rounded_corner_rectangle_solid_gray"
-                android:gravity="center_vertical"
-                android:hint="Black Pant and White Shirt"
-                android:inputType="text"
-                android:nextFocusDown="@+id/et_j_start"
-                android:orientation="horizontal"
-                android:padding="@dimen/dimen_8dp"
+                android:backgroundTint="@color/gray_color"
+                android:autofillHints="Black Pant"
+                android:id="@+id/special"
                 android:textColor="@color/gray_color"
-                android:textSize="@dimen/dimen_12dp">
-
-            </EditText>
+                >
+            </Spinner>
 
             <!--Email layout field End-->
             <!--First Name and Last Name  field layout start-->
@@ -150,7 +143,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <EditText
+                <TextView
                     android:id="@+id/et_j_start"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -162,8 +155,18 @@
                     android:padding="@dimen/dimen_8dp"
                     android:textColor="@color/gray_color"
                     android:textSize="@dimen/text_12sp" />
+                <ImageButton
+                    android:id="@+id/btnstart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".15"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/time"
+                    android:layout_gravity="center_vertical"
+                    android:background="#fff">
+                </ImageButton>
 
-                <EditText
+                <TextView
                     android:id="@+id/et_j_end"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -176,7 +179,16 @@
                     android:padding="@dimen/dimen_8dp"
                     android:textColor="@color/gray_color"
                     android:textSize="@dimen/text_12sp" />
-
+                <ImageButton
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/btnend"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.15"
+                    android:src="@drawable/time"
+                    android:layout_gravity="center_vertical"
+                    android:background="#fff">
+                </ImageButton>
             </LinearLayout>
 
 
@@ -263,14 +275,12 @@
                 android:text="Booking Radius"
                 android:textColor="@color/orange_color"
                 android:textSize="@dimen/text_12sp" />
-
             <EditText
                 android:id="@+id/et_bookingR"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_10dp"
                 android:background="@drawable/rounded_corner_rectangle_solid_gray"
-                android:drawableRight="@drawable/drop_down"
                 android:drawablePadding="@dimen/dimen_5dp"
                 android:gravity="center_vertical"
                 android:hint="Booking Radius"

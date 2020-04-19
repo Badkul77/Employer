@@ -178,8 +178,17 @@ public class RegisterAcitivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if(documentSnapshot.exists()){
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                    finish();
+                   // Toast.makeText(RegisterAcitivity.this, ""+documentSnapshot.getString("Valid"), Toast.LENGTH_SHORT).show();
+                    String check=documentSnapshot.getString("Valid").trim();
+                    if (check.contains("true")) {
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        finish();
+                    }
+                    else
+                    {
+                        startActivity(new Intent(getApplicationContext(), Verification_Activity.class));
+                        finish();
+                    }
                 }
                 else{
                     startActivity(new Intent(getApplicationContext(), Detail_Activity.class));

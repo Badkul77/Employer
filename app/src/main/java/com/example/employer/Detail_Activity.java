@@ -40,6 +40,23 @@ import java.util.UUID;
 
 
 public class Detail_Activity extends AppCompatActivity {
+    private class GeocoderHandler extends Handler {
+        @Override
+        public void handleMessage(Message message) {
+            String locationAddress;
+            switch (message.what) {
+                case 1:
+                    Bundle bundle = message.getData();
+                    locationAddress = bundle.getString("address");
+                    lat= bundle.getString("latitude");
+                    lon= bundle.getString("longitude");
+                    break;
+                default:
+                    locationAddress = null;
+            }
+            //   latLongTV.setText(locationAddress);
+        }
+    }
     EditText et_f_name, et_l_name, et_email, et_role, et_contact, et_altcontact,etaadhar,etnameofcompany,et_typeofbusiness,
             et_company_email,et_city,et_location,et_gstin;
     private StorageReference storageReference;
@@ -115,16 +132,11 @@ public class Detail_Activity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(lat!=null || lon!=null) {
-                    GeocodingLocation locationAddress = new GeocodingLocation();
-                    locationAddress.getAddressFromLocation(et_location.getText().toString(),
-                            getApplicationContext(), new GeocoderHandler());
-                }
-                else
-                {
-                    Toast.makeText(Detail_Activity.this, "Please Provide the correct location with pincode", Toast.LENGTH_SHORT).show();
-                   return;
-                }
+
+                GeocodingLocation locationAddress = new GeocodingLocation();
+                locationAddress.getAddressFromLocation(et_location.getText().toString(),
+                        getApplicationContext(), new GeocoderHandler());
+
                 if(et_f_name.getText().toString().isEmpty()|| et_l_name.getText().toString().isEmpty() || et_company_email.getText().toString().isEmpty()|| et_role.getText().toString().isEmpty() || et_contact.getText().toString().isEmpty()
                         || et_altcontact.getText().toString().isEmpty()|| et_email.getText().toString().isEmpty() || etaadhar.getText().toString().isEmpty()
                         ||etnameofcompany.getText().toString().isEmpty()|| et_typeofbusiness.getText().toString().isEmpty()
@@ -235,7 +247,8 @@ public class Detail_Activity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
-                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                Toast.makeText(Detail_Activity.this, "Sucessfully Registered", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(),Verification_Activity.class));
                                 finish();
                             }
                         }
@@ -271,21 +284,5 @@ public class Detail_Activity extends AppCompatActivity {
             filepath3 = result.getUri();
         }
     }
-    private class GeocoderHandler extends Handler {
-        @Override
-        public void handleMessage(Message message) {
-            String locationAddress;
-            switch (message.what) {
-                case 1:
-                    Bundle bundle = message.getData();
-                    locationAddress = bundle.getString("address");
-                    lat= bundle.getString("latitude");
-                    lon= bundle.getString("longitude");
-                    break;
-                default:
-                    locationAddress = null;
-            }
-         //   latLongTV.setText(locationAddress);
-        }
-    }
+
 }

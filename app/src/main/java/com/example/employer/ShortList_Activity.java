@@ -54,7 +54,7 @@ RecyclerView recyclerView;
                 location=dataSnapshot.child(apply).child("userLocation").getValue().toString();
              language=dataSnapshot.child(apply).child("userLangauge").getValue().toString();
             employee_id=dataSnapshot.child(apply).child("employeeId").getValue().toString();
-                 status=dataSnapshot.child(apply).child("job_status").getValue().toString();
+                 status=dataSnapshot.child(apply).child("status").getValue().toString();
              al.add(new ShortListing(name,location,language,apply,employee_id,status));
                  adapter.notifyDataSetChanged();
              }
