@@ -150,27 +150,19 @@
                     android:text="Your role"
                     android:textColor="@color/orange_color"
                     android:textSize="@dimen/text_12sp" />
-
-                <EditText
-                    android:id="@+id/et_your_role"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimen_10dp"
-                    android:background="@drawable/rounded_corner_rectangle_solid_gray"
-                    android:gravity="center_vertical"
-                    android:hint="Job Title"
-                    android:inputType="textPersonName"
-                    android:nextFocusDown="@+id/et_contact_detail"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/dimen_8dp"
-                    android:textColor="@color/gray_color"
-                    android:textSize="@dimen/dimen_12dp" />
+                 <Spinner
+                     android:id="@+id/job_role"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:backgroundTint="@color/gray_color"
+                     >
+                 </Spinner>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_8dp"
-                    android:text="Contact Detail"
+                    android:text="Contact Number"
                     android:textColor="@color/orange_color"
                     android:textSize="@dimen/text_12sp" />
 
@@ -276,17 +268,33 @@
                     android:text="Type of Business"
                     android:textColor="@color/orange_color"
                     android:textSize="@dimen/text_12sp" />
+                <Spinner
+                    android:id="@+id/type_of_buisness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gray_color"
+                    >
+                </Spinner>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:text="Company Contact Number"
+                    android:textColor="@color/orange_color"
+                    android:textSize="@dimen/text_12sp" />
 
                 <EditText
-                    android:id="@+id/et_business_type"
+                    android:id="@+id/et_company_contact_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_5dp"
                     android:background="@drawable/rounded_corner_rectangle_solid_gray"
                     android:gravity="center_vertical"
-                    android:hint="Hotel"
-                    android:imeOptions="actionGo"
-                    android:inputType="textPersonName"
+                    android:hint="Ex. 9009090090"
+                    android:inputType="phone"
+                    android:nextFocusDown="@+id/et_company_you_represent"
                     android:orientation="horizontal"
                     android:padding="@dimen/dimen_8dp"
                     android:textColor="@color/gray_color"
@@ -295,7 +303,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimen_8dp"
-                    android:text="Company Mailing Address "
+                    android:text="Company E-Mail Address "
                     android:textColor="@color/orange_color"
                     android:textSize="@dimen/text_12sp" />
 
@@ -404,7 +412,9 @@
                android:gravity="center"
                android:padding="@dimen/dimen_10dp"
                android:textColor="#fff"
-               android:layout_marginTop="@dimen/dimen_10dp"></Button>
+               android:layout_marginTop="@dimen/dimen_10dp">
+
+           </Button>
 
         </LinearLayout>
     </LinearLayout>

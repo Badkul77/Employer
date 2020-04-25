@@ -93,20 +93,58 @@
                 android:text="Special Instruction"
                 android:textColor="@color/orange_color"
                 android:textSize="@dimen/text_12sp" />
-
-            <Spinner
-                android:layout_width="match_parent"
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+           <CheckBox
+               android:id="@+id/blackpant"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:text="Black Pant"
+               android:backgroundTint="@color/gray_color"
+               android:textColor="@color/gray_color"
+               >
+           </CheckBox>
+            <CheckBox
+                android:id="@+id/White"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="White Shirt"
                 android:backgroundTint="@color/gray_color"
-                android:autofillHints="Black Pant"
-                android:id="@+id/special"
                 android:textColor="@color/gray_color"
                 >
-            </Spinner>
+            </CheckBox>
 
+</LinearLayout>
             <!--Email layout field End-->
             <!--First Name and Last Name  field layout start-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <CheckBox
+                    android:id="@+id/blackshoe"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Black Shoe"
+                    android:backgroundTint="@color/gray_color"
+                    android:textColor="@color/gray_color"
+                    >
+                </CheckBox>
+                <CheckBox
+                    android:id="@+id/cleanshave"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Clean Shave"
+                    android:backgroundTint="@color/gray_color"
+                    android:textColor="@color/gray_color"
+                    >
+                </CheckBox>
 
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -267,7 +305,28 @@
 
 </ImageButton>
 </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:text="How Many People Required"
+                android:textColor="@color/orange_color"
+                android:textSize="@dimen/text_12sp" />
 
+            <EditText
+                android:id="@+id/et_minjob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:background="@drawable/rounded_corner_rectangle_solid_gray"
+                android:gravity="center_vertical"
+                android:hint="Ex. 6"
+                android:inputType="phone"
+                android:nextFocusDown="@+id/et_date"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_8dp"
+                android:textColor="@color/gray_color"
+                android:textSize="@dimen/dimen_12dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -275,6 +334,25 @@
                 android:text="Booking Radius"
                 android:textColor="@color/orange_color"
                 android:textSize="@dimen/text_12sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:text="Do you want your default address ?"
+                android:textColor="@color/orange_color"
+                android:textSize="@dimen/text_12sp" />
+                <CheckBox
+                    android:id="@+id/yes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.25"
+                    android:text="Yes"
+                    >
+                </CheckBox>
+            </LinearLayout>
             <EditText
                 android:id="@+id/et_bookingR"
                 android:layout_width="match_parent"

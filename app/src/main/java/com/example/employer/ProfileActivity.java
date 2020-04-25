@@ -20,8 +20,8 @@ public class ProfileActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseFirestore fStore;
     TextView txtfirst,txtlast,txtcompanyname,txt_role,txt_phoneno,txt_GSTIN,txt_Aadhar,txt_city,txt_region,txt_company_email,txt_rating,
-    txt_logout;
-    String mfirst,mlast,mcompanyname,m_role,m_phoneno,m_GSTIN,m_Aadhar,m_city,m_region,m_company_email;
+    txt_logout,txt_alter;
+    String mfirst,mlast,mcompanyname,m_role,m_phoneno,m_GSTIN,m_Aadhar,m_city,m_region,m_company_email,m_alter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
         txtcompanyname=findViewById(R.id.tv_companyname);
         txt_role=findViewById(R.id.tv_role);
         txt_phoneno=findViewById(R.id.tv_phonenumber);
+        txt_alter=findViewById(R.id.tv_alter_phonenumber);
         txt_GSTIN=findViewById(R.id.tv_company_Gstin);
         txt_Aadhar=findViewById(R.id.tv_aadhar);
         txt_city=findViewById(R.id.tv_cityname);
@@ -61,6 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
                    mcompanyname=documentSnapshot.getString("Name_Of_Company");
                    m_role=documentSnapshot.getString("role");
                    m_phoneno=documentSnapshot.getString("contact");
+                   m_alter=documentSnapshot.getString("Alternate_contact");
                    m_GSTIN=documentSnapshot.getString("GSTIN");
                    m_Aadhar=documentSnapshot.getString("Aadhar_NO");
                    m_city=documentSnapshot.getString("City");

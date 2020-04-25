@@ -300,7 +300,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (item.getItemId()==R.id.location)
         {
-            startActivity(new Intent(getApplicationContext(),GeocodingActivity.class));
+            startActivity(new Intent(getApplicationContext(),Detail_Activity.class));
             finish();
         }
         return true;

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -42,10 +43,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Job_Activity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
-    EditText et_job_title,et_job_desc,et_amount,et_booking,et_address;
+    EditText et_job_title,et_job_desc,et_amount,et_booking,et_address,et_minjob;
     Button add_job;
     TextView et_job_start,et_job_end;
-    Spinner et_special;
+    //Spinner et_special;
+    CheckBox bp,ws,bs,cs,yes;
     String sstatus;
    TextView et_date;
    ImageButton btndate,btnstart,btnend;
@@ -53,7 +55,7 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
     DatabaseReference reference;
     String time,date;
     ArrayAdapter<String> adapter;
-    String profesion[] = {"Black Pant", "White Shirt", "Black Shoe ","Clean Save"};
+   // String profesion[] = {"Black Pant", "White Shirt", "Black Shoe ","Clean Save"};
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userID,mcompanyname,jobcity,mjoblocation;
@@ -63,10 +65,10 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job);
-        et_special=findViewById(R.id.special);
-        adapter = new ArrayAdapter<String>(Job_Activity.this, android.R.layout.simple_list_item_1, profesion);
-        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        et_special.setAdapter(adapter);
+        //et_special=findViewById(R.id.special);
+        //adapter = new ArrayAdapter<String>(Job_Activity.this, android.R.layout.simple_list_item_1, profesion);
+        //adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+       // et_special.setAdapter(adapter);
         et_job_title=findViewById(R.id.et_job_title);
         et_job_desc=findViewById(R.id.et_desc);
         et_job_start=findViewById(R.id.et_j_start);
@@ -74,12 +76,18 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
         et_amount=findViewById(R.id.et_amount);
         et_booking=findViewById(R.id.et_bookingR);
         et_date=findViewById(R.id.et_date);
+        et_minjob=findViewById(R.id.et_minjob);
        // et_address=findViewById(R.id.et_address);
         add_job=findViewById(R.id.btn_add_job);
         btndate=findViewById(R.id.btndate);
         btnstart=findViewById(R.id.btnstart);
         btnend=findViewById(R.id.btnend);
-        et_special.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        bp=findViewById(R.id.blackpant);
+        ws=findViewById(R.id.White);
+        bs=findViewById(R.id.blackshoe);
+        cs=findViewById(R.id.cleanshave);
+        yes=findViewById(R.id.yes);
+       /* et_special.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch(position)
@@ -121,7 +129,7 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
@@ -162,9 +170,20 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
                    mcompanyname=documentSnapshot.getString("Name_Of_Company");
                    jobcity=documentSnapshot.getString("City");
                    mjoblocation=documentSnapshot.getString("Location");
+
                }
             }
         }   );
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(yes.isChecked())
+                {
+                    et_booking.setText(mjoblocation);
+                }
+            }
+        });
+
     btndate.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -212,7 +231,7 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
             public void onClick(View v) {
                 if(et_job_title.getText().toString().isEmpty()||et_job_desc.getText().toString().isEmpty()||
                         et_job_start.getText().toString().isEmpty()||et_job_end.getText().toString().isEmpty()||et_amount.getText().toString().isEmpty()||
-                        et_booking.getText().toString().isEmpty()||et_date.getText().toString().isEmpty())
+                        et_booking.getText().toString().isEmpty()||et_date.getText().toString().isEmpty()||et_minjob.getText().toString().isEmpty())
                 {
                     Toast.makeText(Job_Activity.this, "Fill the required Details", Toast.LENGTH_SHORT).show();
                     return;
@@ -236,13 +255,31 @@ public class Job_Activity extends AppCompatActivity implements DatePickerDialog.
                             Toast.makeText(Job_Activity.this, "Succesfully Registered", Toast.LENGTH_SHORT).show();
                         }
                     });*/
+                    final StringBuilder result=new StringBuilder();
+                    if(bp.isChecked())
+                    {
+                        result.append("Black Pant  ");
+                    }
+                    if(ws.isChecked())
+                    {
+                        result.append("White Shirt  ");
+                    }
+                    if(bs.isChecked())
+                    {
+                        result.append("Black Shoes  ");
+                    }
+                    if (cs.isChecked())
+                    {
+                        result.append("Clean Shave  ");
+                    }
 
                     reference.child(time+"job"+id).child("Job_Title").setValue(et_job_title.getText().toString());
                     reference.child(time+"job"+id).child("Job_Desc").setValue(et_job_desc.getText().toString());
-                    reference.child(time+"job"+id).child("Job_Special").setValue(sstatus);
+                    reference.child(time+"job"+id).child("Job_Special").setValue(result.toString());
                     reference.child(time+"job"+id).child("Job_Start_Time").setValue(et_job_start.getText().toString());
                     reference.child(time+"job"+id).child("Job_End_Time").setValue(et_job_end.getText().toString());
                     reference.child(time+"job"+id).child("Job_Amount").setValue(et_amount.getText().toString());
+                    reference.child(time+"job"+id).child("Job_Minimum").setValue(et_minjob.getText().toString());
                     reference.child(time+"job"+id).child("Job_Booking_Radius").setValue(et_booking.getText().toString());
                     reference.child(time+"job"+id).child("Job_Date").setValue(et_date.getText().toString());
                     reference.child(time+"job"+id).child("Company_name").setValue(mcompanyname);
